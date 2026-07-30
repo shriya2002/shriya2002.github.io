@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Shriya Vyamajala — Software Engineer</title>
+<meta name="description" content="Full-stack software engineer in Phoenix, AZ. Vue, React and TypeScript on the front end; Java and Spring Boot services, CI/CD and observability behind them." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#101828;
+  --ink-soft:#48536b;
+  --paper:#EDF0F4;
+  --card:#ffffff;
+  --line:#d3dae4;
+  --violet:#5B3DF5;
+  --amber:#E08A22;
+  --mint:#0E9E7E;
+  --panel:#14162B;
+  --panel-ink:#E7EAF4;
+  --shadow:0 1px 2px rgba(16,24,40,.06), 0 12px 28px -18px rgba(16,24,40,.35);
+  --r:14px;
+  --maxw:1080px;
+}
+[data-theme="dark"]{
+  --ink:#E7EAF4;
+  --ink-soft:#9aa6c2;
+  --paper:#0D0F1C;
+  --card:#161A2E;
+  --line:#2a3050;
+  --violet:#9A86FF;
+  --amber:#F2B25C;
+  --mint:#3FCFA9;
+  --panel:#060814;
+  --panel-ink:#E7EAF4;
+  --shadow:0 1px 2px rgba(0,0,0,.5), 0 18px 40px -22px rgba(0,0,0,.9);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  transition:background .35s ease,color .35s ease;
+}
+h1,h2,h3{font-family:"Space Grotesk","Space Grotesk Fallback",system-ui,sans-serif;font-weight:700;letter-spacing:-.02em;line-height:1.08;margin:0}
+a{color:inherit}
+.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.eyebrow{
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-soft);
+}
+
+/* ---------- progress + nav ---------- */
+#progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--violet);z-index:60}
+.nav{
+  position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+}
+.nav-in{display:flex;align-items:center;gap:20px;height:60px;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.brand{font-family:"Space Grotesk",sans-serif;font-weight:700;letter-spacing:-.01em;font-size:16px;text-decoration:none;white-space:nowrap}
+.brand span{color:var(--violet)}
+.nav-links{display:flex;gap:18px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{
+  font-family:"IBM Plex Mono",monospace;font-size:12.5px;text-decoration:none;color:var(--ink-soft);
+  padding:4px 0;border-bottom:1.5px solid transparent;white-space:nowrap;transition:color .2s,border-color .2s;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--ink);border-color:var(--violet)}
+.iconbtn{
+  border:1px solid var(--line);background:var(--card);color:var(--ink);
+  border-radius:999px;height:34px;min-width:34px;padding:0 10px;cursor:pointer;
+  font-family:"IBM Plex Mono",monospace;font-size:12px;display:inline-flex;align-items:center;gap:6px;
+  transition:border-color .2s,transform .12s;
+}
+.iconbtn:hover{border-color:var(--violet)}
+.iconbtn:active{transform:translateY(1px)}
+:focus-visible{outline:2.5px solid var(--violet);outline-offset:3px;border-radius:4px}
+
+/* ---------- hero ---------- */
+.hero{padding:76px 0 24px}
+.hero h1{font-size:clamp(42px,8.4vw,86px)}
+.hero h1 .line2{display:block;color:var(--ink-soft)}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:22px;align-items:center}
+.tag{
+  font-family:"IBM Plex Mono",monospace;font-size:12px;border:1px solid var(--line);
+  border-radius:999px;padding:4px 11px;color:var(--ink-soft);background:var(--card);
+}
+.lede{max-width:56ch;margin-top:26px;font-size:18px;color:var(--ink-soft)}
+.lede strong{color:var(--ink);font-weight:600}
+.cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;text-decoration:none;cursor:pointer;
+  font-family:"IBM Plex Mono",monospace;font-size:13px;padding:11px 17px;border-radius:999px;
+  border:1px solid var(--line);background:var(--card);color:var(--ink);transition:transform .12s,border-color .2s,background .2s;
+}
+.btn:hover{border-color:var(--violet)}
+.btn:active{transform:translateY(1px)}
+.btn.primary{background:var(--violet);border-color:var(--violet);color:#fff}
+.btn.primary:hover{filter:brightness(1.08)}
+
+/* ---------- signature: pipeline ---------- */
+.pipe{
+  margin:52px 0 90px;background:var(--panel);color:var(--panel-ink);
+  border-radius:var(--r);padding:26px 24px 22px;box-shadow:var(--shadow);position:relative;overflow:hidden;
+}
+.pipe::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(600px 180px at 12% 0%,rgba(91,61,245,.30),transparent 70%);
+}
+.pipe-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;position:relative;z-index:1}
+.pipe-head .eyebrow{color:#8d9ac2}
+.pipe-status{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:12px;color:#8d9ac2}
+.pipe-status b{color:var(--mint);font-weight:500}
+.replay{
+  border:1px solid #2c3358;background:transparent;color:var(--panel-ink);border-radius:999px;
+  padding:5px 12px;font-family:"IBM Plex Mono",monospace;font-size:11.5px;cursor:pointer;transition:border-color .2s;
+}
+.replay:hover{border-color:var(--violet)}
+.stages{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:22px;position:relative;z-index:1;
+}
+.stage{
+  text-align:left;background:transparent;border:0;padding:0;color:inherit;cursor:pointer;font:inherit;
+}
+.stage .bar{
+  height:3px;border-radius:2px;background:#242a4a;position:relative;overflow:hidden;margin-bottom:12px;
+}
+.stage .bar i{
+  position:absolute;inset:0;transform:scaleX(0);transform-origin:left;background:var(--mint);
+  transition:transform .55s cubic-bezier(.4,0,.2,1);
+}
+.stage[data-state="run"] .bar i{background:var(--amber);transform:scaleX(.55)}
+.stage[data-state="pass"] .bar i{transform:scaleX(1)}
+.stage .dot{
+  width:9px;height:9px;border-radius:50%;background:#39406b;display:inline-block;margin-right:8px;vertical-align:1px;
+  transition:background .3s;
+}
+.stage[data-state="run"] .dot{background:var(--amber);animation:pulse 1s infinite}
+.stage[data-state="pass"] .dot{background:var(--mint)}
+@keyframes pulse{50%{opacity:.28}}
+.stage .name{font-family:"Space Grotesk",sans-serif;font-weight:500;font-size:14.5px}
+.stage .note{
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:#8d9ac2;margin-top:7px;
+  max-height:0;overflow:hidden;opacity:0;transition:max-height .35s ease,opacity .25s ease;line-height:1.5;
+}
+.stage[aria-expanded="true"] .note{max-height:120px;opacity:1}
+.stage:hover .name{color:#fff}
+
+/* ---------- sections ---------- */
+.sec{padding:64px 0;border-top:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:30px}
+.sec-head h2{font-size:clamp(26px,4vw,38px)}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* skills */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.chip{
+  font-family:"IBM Plex Mono",monospace;font-size:12px;padding:6px 13px;border-radius:999px;
+  border:1px solid var(--line);background:var(--card);color:var(--ink-soft);cursor:pointer;transition:all .18s;
+}
+.chip:hover{border-color:var(--violet);color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--violet);border-color:var(--violet);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.skill{
+  background:var(--card);border:1px solid var(--line);border-radius:11px;padding:13px 15px;
+  transition:transform .18s,border-color .18s,opacity .25s;
+}
+.skill:hover{transform:translateY(-2px);border-color:var(--violet)}
+.skill .cat{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--violet)}
+.skill .items{font-size:15px;margin-top:5px}
+.skill.hide{display:none}
+
+/* experience */
+.roles{display:flex;flex-direction:column;gap:14px}
+.role{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.role-top{
+  width:100%;text-align:left;background:transparent;border:0;font:inherit;color:inherit;cursor:pointer;
+  padding:20px 22px;display:grid;grid-template-columns:1fr auto;gap:6px 18px;align-items:center;
+}
+.role-top:hover .r-title{color:var(--violet)}
+.r-title{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:20px;transition:color .2s}
+.r-org{color:var(--ink-soft);font-size:15px}
+.r-when{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-soft);text-align:right}
+.r-toggle{
+  grid-column:2;justify-self:end;font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--violet);
+}
+.role-body{max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.4,0,.2,1)}
+.role-body ul{margin:0;padding:0 22px 22px 40px}
+.role-body li{margin-bottom:11px;color:var(--ink-soft)}
+.role-body li::marker{color:var(--violet)}
+.role-body li b{color:var(--ink);font-weight:600}
+
+/* education + paper */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.card h3{font-size:19px;margin-bottom:4px}
+.card p{margin:.35em 0;color:var(--ink-soft);font-size:15px}
+.paper{
+  display:block;text-decoration:none;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--r);padding:22px;margin-top:14px;transition:border-color .2s,transform .18s;
+}
+.paper:hover{border-color:var(--violet);transform:translateY(-2px)}
+.paper .venue{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--amber)}
+
+/* contact */
+.contact{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+footer{padding:40px 0 60px;color:var(--ink-soft);font-size:13px;border-top:1px solid var(--line)}
+.toast{
+  position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);background:var(--panel);color:#fff;
+  font-family:"IBM Plex Mono",monospace;font-size:12.5px;padding:10px 18px;border-radius:999px;
+  opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:70;
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:820px){
+  .stages{grid-template-columns:1fr 1fr}
+  .two{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .hero{padding-top:48px}
+  .stages{grid-template-columns:1fr}
+  .role-top{grid-template-columns:1fr}
+  .r-when,.r-toggle{text-align:left;justify-self:start;grid-column:1}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top">Shriya Vyamajala<span>.</span></a>
+    <div class="nav-links">
+      <a href="#work">work</a>
+      <a href="#skills">skills</a>
+      <a href="#education">education</a>
+      <a href="#contact">contact</a>
+    </div>
+    <button class="iconbtn" id="theme" aria-label="Switch to dark theme">◑ dark</button>
+  </div>
+</nav>
+
+<main class="wrap" id="top">
+
+  <!-- HERO -->
+  <header class="hero">
+    <p class="eyebrow">Software Engineer · Phoenix, AZ</p>
+    <h1>Shriya Vyamajala<span class="line2">ships it end to end.</span></h1>
+    <div class="hero-meta">
+      <span class="tag">Vue.js</span>
+      <span class="tag">React</span>
+      <span class="tag">TypeScript</span>
+      <span class="tag">Java · Spring Boot</span>
+      <span class="tag">AWS · Docker</span>
+      <span class="tag">GitHub Actions</span>
+    </div>
+    <p class="lede">I build full-stack production software — <strong>rich web interfaces</strong>, the <strong>services behind them</strong>, and the <strong>pipelines that get them safely to users</strong>. Most of my favourite work happens where those three meet: a payment state that has to stay consistent through retries, a dashboard that has to stay fast, a deploy that has to fail loudly before customers notice.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="#work">See the work →</a>
+      <a class="btn" href="mailto:shrivyamajala@gmail.com">Email me</a>
+      <a class="btn" href="https://linkedin.com/in/shriya-v-81ba25105" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </header>
+
+  <!-- SIGNATURE: PIPELINE -->
+  <section class="pipe" aria-label="How I work, as a pipeline">
+    <div class="pipe-head">
+      <p class="eyebrow">how i work</p>
+      <button class="replay" id="replay">↻ run again</button>
+      <p class="pipe-status" id="pipeStatus">queued</p>
+    </div>
+    <div class="stages" id="stages">
+      <button class="stage" data-state="idle" aria-expanded="false">
+        <span class="bar"><i></i></span>
+        <span class="name"><span class="dot"></span>Refine</span>
+        <span class="note">Sit with product and UX until a request becomes technical tasks with a testable definition of done.</span>
+      </button>
+      <button class="stage" data-state="idle" aria-expanded="false">
+        <span class="bar"><i></i></span>
+        <span class="name"><span class="dot"></span>Build</span>
+        <span class="note">Vue and React on the front, Spring Boot services and schema changes behind. Small commits, reviewable diffs.</span>
+      </button>
+      <button class="stage" data-state="idle" aria-expanded="false">
+        <span class="bar"><i></i></span>
+        <span class="name"><span class="dot"></span>Test</span>
+        <span class="note">TDD where it pays: JUnit around business logic, integration tests on critical API paths, Cucumber for behaviour.</span>
+      </button>
+      <button class="stage" data-state="idle" aria-expanded="false">
+        <span class="bar"><i></i></span>
+        <span class="name"><span class="dot"></span>Ship</span>
+        <span class="note">GitHub Actions running lint, tests, static analysis and security checks — with branch protection and an approval gate on production.</span>
+      </button>
+      <button class="stage" data-state="idle" aria-expanded="false">
+        <span class="bar"><i></i></span>
+        <span class="name"><span class="dot"></span>Observe</span>
+        <span class="note">Datadog metrics, smoke checks after deploy, and post-incident notes so the same bug costs less the second time.</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section class="sec reveal" id="work">
+    <div class="sec-head">
+      <p class="eyebrow">01 / experience</p>
+      <h2>Where I've built things</h2>
+    </div>
+    <div class="roles" id="roles">
+
+      <article class="role">
+        <button class="role-top" aria-expanded="true">
+          <span>
+            <span class="r-title">Software Engineer</span>
+            <span class="r-org">Kryterion Inc. — Phoenix, AZ</span>
+          </span>
+          <span class="r-when">Mar 2023 – Present</span>
+          <span class="r-toggle">hide details −</span>
+        </button>
+        <div class="role-body">
+          <ul>
+            <li>Worked on the <b>migration of an enterprise application</b> onto modern Vue and React, backed by Java and Spring Boot — from design review through implementation, testing and deployment.</li>
+            <li>Built <b>interactive interfaces and dashboards</b> in React and TypeScript, then chased down the things that make them feel slow: page speed, responsiveness, and the rough edges on high-impact business flows.</li>
+            <li>Developed a <b>payment-status microservice</b> in Java/Spring Boot — REST API design, schema changes, and integration with upstream payment gateways and downstream reporting. Handled retries, error paths and idempotency so transaction state stays consistent.</li>
+            <li>Designed <b>GitHub Actions workflows</b> that lint and test every pull request and build and push Docker images on merge, with branch protections and status checks that block deploys until everything passes.</li>
+            <li>Extended CI/CD with <b>static analysis, security checks and a manual approval gate</b> in front of production.</li>
+            <li>Led <b>cross-layer troubleshooting</b> across UI, APIs and the database using Datadog log metrics and ad-hoc SQL, validated fixes with stakeholders, and wrote post-incident notes.</li>
+            <li>Contributed to design discussions and sprint ceremonies on tradeoffs, risk and timelines.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="role">
+        <button class="role-top" aria-expanded="false">
+          <span>
+            <span class="r-title">IAM Analyst</span>
+            <span class="r-org">BridgeSoft Solutions Pvt Ltd — Hyderabad, India</span>
+          </span>
+          <span class="r-when">Nov 2019 – Aug 2021</span>
+          <span class="r-toggle">show details +</span>
+        </button>
+        <div class="role-body">
+          <ul>
+            <li>Turned manual <b>access approval and provisioning</b> into guided, semi-automated flows with Vue.js — faster to complete, with more consistent audit trails.</li>
+            <li>Designed <b>role-based dashboards and portals</b> for hospitality and rental clients, surfacing identity, access and usage data over REST APIs so operations and security teams could see who had access to what.</li>
+            <li>Refactored and tuned <b>PL/SQL</b> behind reporting, provisioning and entitlement sync — simpler procedures, less redundant logic, faster nightly jobs.</li>
+            <li>Debugged production IAM issues with infrastructure and security teams, from UI validation bugs to authorization failures and inconsistent directory state.</li>
+            <li>Helped move legacy on-prem applications toward <b>API-driven identity services</b> without disrupting existing users during cutovers.</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="sec reveal" id="skills">
+    <div class="sec-head">
+      <p class="eyebrow">02 / toolkit</p>
+      <h2>What I reach for</h2>
+    </div>
+    <div class="filters" id="filters" role="group" aria-label="Filter skills by category"></div>
+    <div class="grid" id="skillGrid"></div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="sec reveal" id="education">
+    <div class="sec-head">
+      <p class="eyebrow">03 / background</p>
+      <h2>Education & research</h2>
+    </div>
+    <div class="two">
+      <div class="card">
+        <h3>M.S., Computer Engineering</h3>
+        <p>University of Toledo · Ohio, USA</p>
+        <p class="mono" style="font-size:12px">May 2019</p>
+      </div>
+      <div class="card">
+        <h3>B.Tech, Computer Science</h3>
+        <p>GITAM University · Hyderabad, India</p>
+        <p class="mono" style="font-size:12px">May 2017</p>
+      </div>
+    </div>
+    <a class="paper" href="https://ieeexplore.ieee.org/document/8500136" target="_blank" rel="noopener">
+      <p class="venue">IEEE EIT 2018 · published paper ↗</p>
+      <h3 style="margin-top:6px">A Real-World Implementation of SQL Injection Attack Using Open Source Tools for Enhanced Cybersecurity Learning</h3>
+      <p>Proceedings of the 2018 IEEE International Conference on Electro/Information Technology.</p>
+    </a>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="sec reveal" id="contact">
+    <div class="sec-head">
+      <p class="eyebrow">04 / say hello</p>
+      <h2>Let's talk about what you're building</h2>
+    </div>
+    <p class="lede" style="margin-top:0">Open to full-stack and platform-leaning roles. The fastest way to reach me is email.</p>
+    <div class="contact">
+      <button class="btn" data-copy="shrivyamajala@gmail.com">shrivyamajala@gmail.com — copy</button>
+      <button class="btn" data-copy="+1 602-684-9484">+1 602-684-9484 — copy</button>
+      <a class="btn primary" href="https://linkedin.com/in/shriya-v-81ba25105" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">Built and hosted by Shriya Vyamajala · Phoenix, AZ</div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- theme ---------- */
+const themeBtn = document.getElementById('theme');
+themeBtn.addEventListener('click', () => {
+  const dark = document.documentElement.dataset.theme === 'dark';
+  document.documentElement.dataset.theme = dark ? 'light' : 'dark';
+  themeBtn.textContent = dark ? '◑ dark' : '◐ light';
+  themeBtn.setAttribute('aria-label', dark ? 'Switch to dark theme' : 'Switch to light theme');
+});
+
+/* ---------- scroll progress + active nav ---------- */
+const bar = document.getElementById('progress');
+const links = [...document.querySelectorAll('.nav-links a')];
+const sections = links.map(a => document.querySelector(a.getAttribute('href')));
+function onScroll(){
+  const h = document.documentElement;
+  bar.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+  let current = -1;
+  sections.forEach((s,i) => { if (s && s.getBoundingClientRect().top <= 120) current = i; });
+  links.forEach((a,i) => a.classList.toggle('active', i === current));
+}
+addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+/* ---------- signature pipeline ---------- */
+const stages = [...document.querySelectorAll('.stage')];
+const pipeStatus = document.getElementById('pipeStatus');
+let timers = [];
+function runPipeline(){
+  timers.forEach(clearTimeout); timers = [];
+  stages.forEach(s => s.dataset.state = 'idle');
+  pipeStatus.innerHTML = 'running…';
+  if (reduced){
+    stages.forEach(s => s.dataset.state = 'pass');
+    pipeStatus.innerHTML = 'all checks <b>passed</b>';
+    return;
+  }
+  stages.forEach((s,i) => {
+    timers.push(setTimeout(() => { s.dataset.state = 'run'; }, 380 + i*620));
+    timers.push(setTimeout(() => { s.dataset.state = 'pass'; }, 380 + i*620 + 560));
+  });
+  timers.push(setTimeout(() => {
+    pipeStatus.innerHTML = 'all checks <b>passed</b>';
+  }, 380 + stages.length*620));
+}
+document.getElementById('replay').addEventListener('click', runPipeline);
+stages.forEach(s => s.addEventListener('click', () => {
+  const open = s.getAttribute('aria-expanded') === 'true';
+  stages.forEach(o => o.setAttribute('aria-expanded','false'));
+  s.setAttribute('aria-expanded', open ? 'false' : 'true');
+}));
+runPipeline();
+
+/* ---------- experience accordion ---------- */
+document.querySelectorAll('.role-top').forEach(btn => {
+  const body = btn.nextElementSibling;
+  const set = open => {
+    btn.setAttribute('aria-expanded', open);
+    body.style.maxHeight = open ? body.scrollHeight + 'px' : '0px';
+    btn.querySelector('.r-toggle').textContent = open ? 'hide details −' : 'show details +';
+  };
+  set(btn.getAttribute('aria-expanded') === 'true');
+  btn.addEventListener('click', () => set(btn.getAttribute('aria-expanded') !== 'true'));
+  addEventListener('resize', () => {
+    if (btn.getAttribute('aria-expanded') === 'true') body.style.maxHeight = body.scrollHeight + 'px';
+  });
+});
+
+/* ---------- skills ---------- */
+const skills = [
+  {cat:'Languages',   items:'Java · JavaScript (ES6+) · TypeScript · Python · PL/SQL · SQL'},
+  {cat:'Front end',   items:'Vue.js · React · Angular'},
+  {cat:'Back end',    items:'Spring Boot · Node.js · Express.js · Django'},
+  {cat:'Databases',   items:'Oracle · SQL Server · MySQL · PostgreSQL · MongoDB'},
+  {cat:'Cloud & DevOps', items:'AWS · Docker · Git/GitHub · GitHub Actions · CI/CD pipelines'},
+  {cat:'Testing',     items:'TDD · JUnit · Cucumber · automated testing · code review'},
+  {cat:'Observability', items:'Datadog log metrics · smoke checks · post-incident notes'},
+  {cat:'Platforms',   items:'Unix / Linux · Windows'},
+  {cat:'Scripting',   items:'Shell scripting for build, deployment, log collection & diagnostics'}
+];
+const grid = document.getElementById('skillGrid');
+grid.innerHTML = skills.map(s =>
+  `<div class="skill" data-cat="${s.cat}"><div class="cat">${s.cat}</div><div class="items">${s.items}</div></div>`
+).join('');
+const cats = ['All', ...skills.map(s => s.cat)];
+const filters = document.getElementById('filters');
+filters.innerHTML = cats.map((c,i) =>
+  `<button class="chip" aria-pressed="${i===0}" data-filter="${c}">${c}</button>`
+).join('');
+filters.addEventListener('click', e => {
+  const chip = e.target.closest('.chip'); if (!chip) return;
+  filters.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', c === chip));
+  const f = chip.dataset.filter;
+  grid.querySelectorAll('.skill').forEach(s =>
+    s.classList.toggle('hide', f !== 'All' && s.dataset.cat !== f));
+});
+
+/* ---------- copy to clipboard ---------- */
+const toast = document.getElementById('toast');
+let toastTimer;
+function say(msg){
+  toast.textContent = msg; toast.classList.add('show');
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove('show'), 1900);
+}
+document.querySelectorAll('[data-copy]').forEach(btn => {
+  btn.addEventListener('click', async () => {
+    const val = btn.dataset.copy;
+    try { await navigator.clipboard.writeText(val); say('Copied ' + val); }
+    catch { say('Copy failed — select it manually: ' + val); }
+  });
+});
+
+/* ---------- reveal on scroll ---------- */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, {threshold:.12});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
