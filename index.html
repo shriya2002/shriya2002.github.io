@@ -211,6 +211,22 @@ a{color:inherit}
 .pill.earned{background:color-mix(in srgb,var(--mint) 18%,transparent);color:var(--mint)}
 .pill.progress{background:color-mix(in srgb,var(--amber) 18%,transparent);color:var(--amber)}
 
+/* projects */
+.projects{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.project{
+  display:flex;flex-direction:column;gap:12px;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--r);padding:22px;transition:border-color .2s,transform .18s;
+}
+.project:hover{border-color:var(--violet);transform:translateY(-2px)}
+.project h3{font-size:20px}
+.project p{margin:0;color:var(--ink-soft);font-size:15px}
+.project ul{margin:0;padding-left:18px;color:var(--ink-soft);font-size:14.5px}
+.project li{margin-bottom:6px}
+.project li::marker{color:var(--violet)}
+.project .stack{display:flex;flex-wrap:wrap;gap:6px}
+.project .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:4px}
+.project .links .btn{padding:8px 14px;font-size:12.5px}
+
 /* education + paper */
 .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px}
@@ -258,6 +274,7 @@ footer{padding:40px 0 60px;color:var(--ink-soft);font-size:13px;border-top:1px s
     <a class="brand" href="#top">Shriya Vyamajala<span>.</span></a>
     <div class="nav-links">
       <a href="#work">work</a>
+      <a href="#projects">projects</a>
       <a href="#skills">skills</a>
       <a href="#certs">certifications</a>
       <a href="#education">education</a>
@@ -285,6 +302,7 @@ footer{padding:40px 0 60px;color:var(--ink-soft);font-size:13px;border-top:1px s
     <div class="cta-row">
       <a class="btn primary" href="#work">See the work →</a>
       <a class="btn" href="mailto:shrivyamajala@gmail.com">Email me</a>
+      <a class="btn" href="https://github.com/shriya2002" target="_blank" rel="noopener">GitHub ↗</a>
       <a class="btn" href="https://linkedin.com/in/shriya-v-81ba25105" target="_blank" rel="noopener">LinkedIn ↗</a>
     </div>
   </header>
@@ -378,10 +396,55 @@ footer{padding:40px 0 60px;color:var(--ink-soft);font-size:13px;border-top:1px s
     </div>
   </section>
 
+  <!-- PROJECTS -->
+  <section class="sec reveal" id="projects">
+    <div class="sec-head">
+      <p class="eyebrow">02 / projects</p>
+      <h2>Things I've built on my own</h2>
+    </div>
+    <div class="projects">
+
+      <article class="project">
+        <h3>RAG Eval Dashboard</h3>
+        <p>Scores retrieval-augmented answers for groundedness and relevance, and highlights the exact sentences the retrieved context doesn't support, including invented prices and dates.</p>
+        <ul>
+          <li>One TypeScript scoring engine shared by a Node.js API and the React UI, so results match with or without a server</li>
+          <li>Optional Claude LLM judge with timeouts, bounded concurrency and fallback to lexical scoring</li>
+          <li>30 unit, API and Playwright browser tests in CI</li>
+        </ul>
+        <div class="stack">
+          <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">LLM evaluation</span><span class="tag">Playwright</span>
+        </div>
+        <div class="links">
+          <a class="btn primary" href="https://shriya2002.github.io/rag-eval-dashboard/" target="_blank" rel="noopener">Live demo ↗</a>
+          <a class="btn" href="https://github.com/shriya2002/rag-eval-dashboard" target="_blank" rel="noopener">Code ↗</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <h3>a11y-ui-kit</h3>
+        <p>Accessible React components (Dialog, Tabs, Accordion, Button) built to the WAI-ARIA Authoring Practices, with keyboard support and focus management that actually work.</p>
+        <ul>
+          <li>Modal dialog with focus trap, Escape to close, focus restore and an <code class="mono">inert</code> background</li>
+          <li>Roving tabindex and arrow-key navigation for tabs and accordions</li>
+          <li>Browser tests that query by accessible role, so broken ARIA fails CI</li>
+        </ul>
+        <div class="stack">
+          <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Accessibility</span><span class="tag">WAI-ARIA</span><span class="tag">Playwright</span>
+        </div>
+        <div class="links">
+          <a class="btn primary" href="https://shriya2002.github.io/a11y-ui-kit/" target="_blank" rel="noopener">Live demo ↗</a>
+          <a class="btn" href="https://github.com/shriya2002/a11y-ui-kit" target="_blank" rel="noopener">Code ↗</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
   <!-- SKILLS -->
   <section class="sec reveal" id="skills">
     <div class="sec-head">
-      <p class="eyebrow">02 / toolkit</p>
+      <p class="eyebrow">03 / toolkit</p>
       <h2>What I reach for</h2>
     </div>
     <div class="filters" id="filters" role="group" aria-label="Filter skills by category"></div>
@@ -391,7 +454,7 @@ footer{padding:40px 0 60px;color:var(--ink-soft);font-size:13px;border-top:1px s
   <!-- CERTIFICATIONS -->
   <section class="sec reveal" id="certs">
     <div class="sec-head">
-      <p class="eyebrow">03 / credentials</p>
+      <p class="eyebrow">04 / credentials</p>
       <h2>Certifications</h2>
     </div>
     <div class="certs">
@@ -414,7 +477,7 @@ footer{padding:40px 0 60px;color:var(--ink-soft);font-size:13px;border-top:1px s
   <!-- EDUCATION -->
   <section class="sec reveal" id="education">
     <div class="sec-head">
-      <p class="eyebrow">04 / background</p>
+      <p class="eyebrow">05 / background</p>
       <h2>Education & research</h2>
     </div>
     <div class="two">
@@ -439,7 +502,7 @@ footer{padding:40px 0 60px;color:var(--ink-soft);font-size:13px;border-top:1px s
   <!-- CONTACT -->
   <section class="sec reveal" id="contact">
     <div class="sec-head">
-      <p class="eyebrow">05 / say hello</p>
+      <p class="eyebrow">06 / say hello</p>
       <h2>Let's talk about what you're building</h2>
     </div>
     <p class="lede" style="margin-top:0">Open to full-stack and platform-leaning roles. The fastest way to reach me is email.</p>
@@ -447,6 +510,7 @@ footer{padding:40px 0 60px;color:var(--ink-soft);font-size:13px;border-top:1px s
       <button class="btn" data-copy="shrivyamajala@gmail.com">shrivyamajala@gmail.com — copy</button>
       <button class="btn" data-copy="+1 602-684-9484">+1 602-684-9484 — copy</button>
       <a class="btn primary" href="https://linkedin.com/in/shriya-v-81ba25105" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn" href="https://github.com/shriya2002" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
   </section>
 </main>
@@ -530,7 +594,8 @@ const skills = [
   {cat:'Back end',    items:'Spring Boot · Node.js · Express.js · Django'},
   {cat:'Databases',   items:'Oracle · SQL Server · MySQL · PostgreSQL · MongoDB'},
   {cat:'Cloud & DevOps', items:'AWS · Docker · Git/GitHub · GitHub Actions · CI/CD pipelines'},
-  {cat:'Testing',     items:'TDD · JUnit · Cucumber · automated testing · code review'},
+  {cat:'AI',          items:'LLM applications · RAG · vector stores · LLM evaluation'},
+  {cat:'Testing',     items:'TDD · JUnit · Cucumber · Playwright · automated testing · code review'},
   {cat:'Observability', items:'Datadog log metrics · smoke checks · post-incident notes'},
   {cat:'Platforms',   items:'Unix / Linux · Windows'},
   {cat:'Scripting',   items:'Shell scripting for build, deployment, log collection & diagnostics'}
