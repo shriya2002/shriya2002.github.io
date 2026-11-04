@@ -410,7 +410,7 @@ footer{padding:40px 0 60px;color:var(--ink-soft);font-size:13px;border-top:1px s
         <ul>
           <li>One TypeScript scoring engine shared by a Node.js API and the React UI, so results match with or without a server</li>
           <li>Optional Claude LLM judge with timeouts, bounded concurrency and fallback to lexical scoring</li>
-          <li>30 unit, API and Playwright browser tests in CI</li>
+          <li>32 unit, API and Playwright browser tests in CI</li>
         </ul>
         <div class="stack">
           <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">LLM evaluation</span><span class="tag">Playwright</span>
@@ -418,6 +418,23 @@ footer{padding:40px 0 60px;color:var(--ink-soft);font-size:13px;border-top:1px s
         <div class="links">
           <a class="btn primary" href="https://shriya2002.github.io/rag-eval-dashboard/" target="_blank" rel="noopener">Live demo ↗</a>
           <a class="btn" href="https://github.com/shriya2002/rag-eval-dashboard" target="_blank" rel="noopener">Code ↗</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <h3>Gemini Doc Q&amp;A</h3>
+        <p>Ask questions about PDFs and text files. Gemini on Vertex AI answers with page-numbered citations, and every answer is checked for sentences the sources don't support.</p>
+        <ul>
+          <li>One-command Cloud Run deploy with a least-privilege service account: no API keys, short-lived tokens from the metadata server</li>
+          <li>About $0.93 per 1,000 questions; turning off Gemini "thinking" more than halved the cost</li>
+          <li>Design doc covering service choices, cost per 1,000 questions and risks</li>
+        </ul>
+        <div class="stack">
+          <span class="tag">Google Cloud</span><span class="tag">Vertex AI</span><span class="tag">Gemini</span><span class="tag">Cloud Run</span><span class="tag">React</span>
+        </div>
+        <div class="links">
+          <a class="btn primary" href="https://github.com/shriya2002/gemini-doc-qa/blob/main/docs/DESIGN.md" target="_blank" rel="noopener">Design doc ↗</a>
+          <a class="btn" href="https://github.com/shriya2002/gemini-doc-qa" target="_blank" rel="noopener">Code ↗</a>
         </div>
       </article>
 
@@ -593,7 +610,7 @@ const skills = [
   {cat:'Front end',   items:'Vue.js · React · Angular'},
   {cat:'Back end',    items:'Spring Boot · Node.js · Express.js · Django'},
   {cat:'Databases',   items:'Oracle · SQL Server · MySQL · PostgreSQL · MongoDB'},
-  {cat:'Cloud & DevOps', items:'AWS · Docker · Git/GitHub · GitHub Actions · CI/CD pipelines'},
+  {cat:'Cloud & DevOps', items:'AWS · Google Cloud (Vertex AI, Cloud Run) · Docker · Git/GitHub · GitHub Actions · CI/CD pipelines'},
   {cat:'AI',          items:'LLM applications · RAG · vector stores · LLM evaluation'},
   {cat:'Testing',     items:'TDD · JUnit · Cucumber · Playwright · automated testing · code review'},
   {cat:'Observability', items:'Datadog log metrics · smoke checks · post-incident notes'},
